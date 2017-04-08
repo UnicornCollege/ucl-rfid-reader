@@ -82,7 +82,7 @@ void uc_sfrfidusbreader_task(void *param)
     size_t _length = 16;
     int8_t _buffer[16] = {0};
 
-    bc_uart_read(self->_uart_channel, &_buffer, _length, 0);
+    bc_uart_read(self->_uart_channel, _buffer, _length, 0);
 
     bc_scheduler_plan_current_relative(UC_SFRFIDUSBREADER_DELAY);   
 }
