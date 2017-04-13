@@ -156,7 +156,15 @@ void usb_talk_publish_co2_concentation(const char *prefix, int16_t *concentratio
 
     usb_talk_send_string((const char *) _usb_talk.tx_buffer);
 }
+void usb_talk_publish_rfid_tag(const char *prefix, int8_t rfid_tag[16])
+{
+    snprintf(_usb_talk.tx_buffer, sizeof(_usb_talk.tx_buffer),
+                "[\"%s/rfid-reader/-/tag\", %" PRIu8 "]\n",
+                prefix, *rfid_tag);
 
+    usb_talk_send_string((const char *) _usb_talk.tx_buffer);
+
+}
 void usb_talk_publish_light(const char *prefix, bool *state)
 {
     snprintf(_usb_talk.tx_buffer, sizeof(_usb_talk.tx_buffer),

@@ -82,5 +82,7 @@ void uc_sfrfidusbreader_task(void *param)
 
     bc_uart_read(self->_uart_channel, _buffer, _length, 1000);
 
+    //usb_talk_publish_rfid_tag("", _buffer);
+
     bc_scheduler_plan_current_relative(UC_SFRFIDUSBREADER_DELAY);   
 }
