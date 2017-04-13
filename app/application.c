@@ -31,7 +31,7 @@ void application_init(void)
 {
     usb_talk_init();
 
-     bc_module_core_pll_enable();
+    bc_module_core_pll_enable();
 
     // Initialize LED
     bc_led_init(&led, BC_GPIO_LED, false, false);
@@ -60,8 +60,6 @@ void application_init(void)
     bc_uart_init(uc_sfrfidusbreader->_uart_channel, &uart_param, &uc_sfrfidusbreader->_tx_fifo, &uc_sfrfidusbreader->_rx_fifo);
 
     uc_sfrfidusbreader->_task_id = bc_scheduler_register(uc_sfrfidusbreader_task, uc_sfrfidusbreader, UC_SFRFIDUSBREADER_DELAY);
-
-    usb_talk_start();
 }
 
 void button_event_handler(bc_button_t *self, bc_button_event_t event, void *event_param)
@@ -82,7 +80,7 @@ void uc_sfrfidusbreader_task(void *param)
     size_t _length = 16;
     int8_t _buffer[16] = {0};
 
-    bc_uart_read(self->_uart_channel, _buffer, _length, 0);
+    bc_uart_read(self->_uart_channel, _buffer, _length, 1000);
 
     bc_scheduler_plan_current_relative(UC_SFRFIDUSBREADER_DELAY);   
 }
