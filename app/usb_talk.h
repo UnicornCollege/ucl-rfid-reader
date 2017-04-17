@@ -33,7 +33,7 @@ void usb_talk_publish_relay(const char *prefix, bool *state);
 void usb_talk_publish_module_relay(const char *prefix, uint8_t *number, bc_module_relay_state_t *state);
 void usb_talk_publish_led_strip_config(const char *prefix, const char *mode, int *count);
 
-void usb_talk_publish_rfid_tag(const char *prefix, int8_t rfid_tag[16]);
+void usb_talk_publish_rfid_tag(const char *prefix, uint8_t rfid_tag[12]);
 
 bool usb_talk_payload_get_bool(usb_talk_payload_t *payload, bool *value);
 bool usb_talk_payload_get_key_bool(usb_talk_payload_t *payload, const char *key, bool *value);
