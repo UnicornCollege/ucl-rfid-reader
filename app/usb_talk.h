@@ -26,5 +26,6 @@ void usb_talk_publish_thermometer(const char *prefix, float *temperature);
 void usb_talk_publish_humidity_sensor(const char *prefix, float *relative_humidity);
 void usb_talk_received_data(uint8_t *buffer, size_t length);
 void usb_talk_publish_input_change(const char *prefix, uint16_t *event_count);
+void usb_talk_publish_rfid_tag(char *rfid_tag);
 
 #endif /* _USB_TALK_H */

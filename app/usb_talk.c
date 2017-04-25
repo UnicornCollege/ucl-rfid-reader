@@ -126,6 +126,14 @@ void usb_talk_publish_humidity_sensor(const char *prefix, float *relative_humidi
     usb_talk_send_string((const char *) usb_talk.tx_buffer);
 }
 
+void usb_talk_publish_rfid_tag(char *rfid_tag)
+{
+    snprintf(usb_talk.tx_buffer, sizeof(usb_talk.tx_buffer),
+            "{\"rfid-tag\": %s }\n", rfid_tag);
+            
+    usb_talk_send_string((const char *) usb_talk.tx_buffer);
+}
+
 static void _usb_talk_task(void *param)
 {
     (void) param;

@@ -1,6 +1,7 @@
 #ifndef _APPLICATION_H
 #define _APPLICATION_H
 
+#include <usb_talk.h>
 #include <bcl.h>
 
 // Forward declarations
